@@ -7,7 +7,8 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'app',
-    }
+      hidden: true,
+      component: () => import('@/views/index')
+    },
   ]
 });
