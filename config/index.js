@@ -1,6 +1,7 @@
 'use strict';
 
 const path = require('path');
+const resolve = dir => path.resolve(__dirname, dir);
 
 module.exports = {
   dev: {
@@ -21,7 +22,13 @@ module.exports = {
 
     cacheBusting: true,
 
-    cssSourceMap: true
+    cssSourceMap: true,
+    resolve: {
+      // 设置别名
+      alias: {
+        '@': resolve('src')
+      }
+    }
   },
 
   build: {
