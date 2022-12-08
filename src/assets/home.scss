@@ -1,0 +1,317 @@
+// 用户中心样式
+
+.progressBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: .60rem;
+  background: url("@/assets/logo/top.png") no-repeat 0 0;
+  background-size: 100%;
+}
+
+// 用户信息
+.user-info {
+  font-size: 0.20rem;
+  margin: 2% 4%;
+
+  .welcome-panel {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    .welcome-name {
+      span {
+        font-size: 0.24rem;
+        font-weight: 600;
+      }
+    }
+    .welcome-count {
+      font-weight: 600;
+      margin-top: 0.1rem;
+    }
+  }
+
+  .id-type-panel {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .id-type-icon {
+    }
+
+    .id-type-icon::before {
+      display: inline-block;
+      content: "";
+      position: relative;
+      width: .4rem;
+      height: .4rem;
+      padding-right: .2rem;
+      background: url("@/assets/img/idType.png") no-repeat 0 0;
+    }
+
+    .id-type {
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      flex-direction: column;
+
+      .id-type-title {
+      }
+      .id-type-value {
+        font-weight: 600;
+        margin-top: 0.1rem;
+      }
+    }
+  }
+
+  .id-code-panel {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .id-code-icon {
+    }
+
+    .id-code-icon::before {
+      display: inline-block;
+      content: "";
+      position: relative;
+      width: .4rem;
+      height: .4rem;
+      padding-right: .2rem;
+      background: url("@/assets/img/idCode.png") no-repeat 0 0;
+    }
+
+    .id-code {
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      flex-direction: column;
+
+      .id-code-title {
+      }
+      .id-code-value {
+        font-weight: 600;
+        margin-top: 0.1rem;
+      }
+    }
+  }
+}
+
+// 增量指标
+.increment-info {
+  margin: 2% 4%;
+  font-size: 0.18rem;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-direction: column;
+  border: 1px solid #30cafc;
+  border-width: 0 1px 1px 1px;
+}
+
+// 更新指标
+.replace-info {
+  margin: 2% 4%;
+  font-size: 0.18rem;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-direction: column;
+  border: 1px solid #30cafc;
+  border-width: 0 1px 1px 1px;
+}
+
+// 其他指标
+.service-car-info {
+  margin: 2% 4%;
+  font-size: 0.18rem;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-direction: column;
+  border: 1px solid #30cafc;
+  border-width: 0 1px 1px 1px;
+}
+
+
+.info-header {
+  border-top: 0px solid #ff6709;
+  color: #fff;
+  width: 100%;
+  height: 0.45rem;
+  line-height: 0.45rem;
+  background: url(@/assets/img/header_title.png) no-repeat 0 0;
+  display: flex;
+  justify-content: flex-start;
+
+  .header-title {
+    font-size: 0.20rem;
+    font-weight: 600;
+    margin-left: 0.2rem;
+  }
+
+  .header-desc {
+    margin-left: 0.2rem;
+  }
+
+  .header-desc::after {
+    display: inline-block;
+    content: "";
+    position: relative;
+    width: .13rem;
+    height: .14rem;
+    margin-left: 0.05rem;
+    background: url("@/assets/img/header_desc.png") no-repeat 0 0;
+  }
+}
+
+.info-content {
+  width: 96%;
+  margin: 0.4rem 0.2rem;
+
+  .apply-panel {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+
+    .apply-title {
+      width: 100%;
+      font-weight: 600;
+      margin-bottom: 0.2rem;
+    }
+
+    .apply-title::before {
+      display: inline-block;
+      content: "";
+      position: relative;
+      width: .13rem;
+      height: .14rem;
+      margin-left: 0.05rem;
+      background: url("@/assets/img/title_line.png") no-repeat 0 0;
+    }
+
+    .apply-table {
+      width: 100%;
+    }
+  }
+
+  .norm-panel {
+    margin-top: 0.4rem;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+
+    .norm-title {
+      width: 100%;
+      font-weight: 600;
+      margin-bottom: 0.2rem;
+    }
+
+    .norm-title::before {
+      display: inline-block;
+      content: "";
+      position: relative;
+      width: .13rem;
+      height: .14rem;
+      margin-left: 0.05rem;
+      background: url("@/assets/img/title_line.png") no-repeat 0 0;
+    }
+
+    .norm-table {
+      width: 100%;
+    }
+  }
+
+}
+
+.no-apply {
+  margin: 0.4rem 0.2rem;
+
+  .apply-button {
+    margin-left: 0.2rem;
+  }
+}
+
+// 政策咨询模块
+.qa-info {
+  margin: 2% 4%;
+  font-size: 0.18rem;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-direction: column;
+  border: 1px solid #30cafc;
+  border-width: 0 1px 1px 1px;
+}
+
+// 结果公示模块
+.result-info {
+  margin: 2% 4%;
+  font-size: 0.18rem;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-direction: column;
+  border: 1px solid #30cafc;
+  border-width: 0 1px 1px 1px;
+
+  .result-content {
+    width: 100%;
+
+    .result-content-panel {
+      margin: 0.4rem 0.2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-evenly;
+
+      .query-panel {
+        width: 100%;
+        border: 0.01rem solid #dde5f5;
+        padding: 0.20rem 0.50rem;
+        margin: 0 0.2rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        .query-logo {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+
+          .person-norm-query-icon {
+
+          }
+          .person-norm-query-icon::before {
+            display: inline-block;
+            content: "";
+            position: relative;
+            width: .67rem;
+            height: .67rem;
+            background: url("@/assets/img/person_norm_query.png") no-repeat 0 0;
+          }
+
+          .query-title {
+            font-size: 0.16rem;
+            font-weight: 600;
+            margin-left: 0.2rem;
+          }
+        }
+
+        .query-button {
+          ::v-deep .el-button {
+            background: #fff !important;
+            span {
+              color: #3379f2;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+

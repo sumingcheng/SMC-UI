@@ -1,0 +1,55 @@
+// 全局样式
+
+@charset "utf-8";
+body, h1, h2, h3, h4, h5, h6, hr, p, blockquote, dl, dt, dd, ul, ol, li, button, input, textarea, th, td, span {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  font-style: normal;
+  font-family: "open sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+// el-table 统一样式
+.el-table {
+  width: 100%;
+
+  .el-table__header-wrapper th {
+    background: #8AA8FF !important;
+    height: 0.4rem;
+
+    div {
+      font-size: 0.15rem;
+      color: #ffffff;
+    }
+  }
+
+  .el-table__body-wrapper td {
+    height: 0.4rem;
+
+    div {
+      font-size: 0.16rem;
+      color: #000000;
+    }
+  }
+}
+
+// el-button 统一样式
+.el-button {
+  // margin-left: 0.2rem !important;
+  background: #3379f2 !important;
+
+  span {
+    color: #fffefe;
+  }
+}
+
+.el-button:hover {
+  background: #4f8df8 !important;
+}

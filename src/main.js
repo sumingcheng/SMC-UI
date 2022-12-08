@@ -6,11 +6,11 @@ import '@vant/touch-emulator';
 // 全局样式
 import '@/assets/reset.scss';
 import '@/assets/index.scss';
-// import './rem';
-import Vant from 'vant';
-import 'vant/lib/index.css';
 
-Vue.use(Vant);
+import ElementUI from 'element-ui';
+import 'element-ui/lib/theme-chalk/index.css';
+
+Vue.use(ElementUI);
 // 引入全局工具类
 import * as utils from '@/tools/Tool';
 
