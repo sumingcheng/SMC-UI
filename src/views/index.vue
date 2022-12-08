@@ -8,7 +8,7 @@
       </el-menu-item>
     </el-menu>
     <div class="content">
-      <treeComponent :TreeData="TreeData" :options="options" :defaultProps="defaultProps" :isCheckbox="true"
+      <treeComponent :TreeData="treeData" :options="options" :defaultProps="defaultProps" :isCheckbox="true"
           :defaultExpansion="false"></treeComponent>
     </div>
   </div>
@@ -25,7 +25,6 @@ export default {
         expandLevel1Data: true,
         childNodeID: 'hasChild'
       },
-      expandLevel1Data: false,
       activeIndex: '1',
       defaultProps: {
         children: 'children',
@@ -131,7 +130,9 @@ export default {
   },
   computed: {
     treeData() {
-      return tree;
+      let { array } = tree;
+      console.log(array);
+      return array;
     }
   },
   mounted() {

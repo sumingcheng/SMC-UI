@@ -7,13 +7,16 @@ const tree = Mock.mock({
       label: '@city()',
       'hasChild|1-2': true,
       'children|10': [ {
-        'id|+10': 10,
-        label: '@city(true)'
+        'id|+100': 1,
+        label: '@county(true)',
+        'children|5': [ {
+          'id|+1000': 1,
+          label: '@protocol()'
+        } ]
       } ]
     }
   ]
 });
-console.log(tree);
 export {
   tree
 };

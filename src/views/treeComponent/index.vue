@@ -1,9 +1,8 @@
 <template>
   <div>
     <el-tree class="treeStyle" :show-checkbox="isCheckbox" :filter-node-method="filterNode" @node-click="treeClick"
-        :props="defaultProps" :data="TreeData" :default-expanded-keys="arr"
-        :default-expand-all="defaultExpansion"
-        ref="tree" :expand-on-click-node="true" node-key="id" :indent="30">
+        :props="defaultProps" :data="TreeData" :default-expanded-keys="customOpen"
+        :default-expand-all="defaultExpansion" ref="tree" :expand-on-click-node="true" node-key="id" :indent="30">
     </el-tree>
   </div>
 </template>
@@ -16,7 +15,7 @@ export default {
       type: Object,
       default: () => ({
         // 默认展开一级
-        expandLevel1Data: false,
+        expandLevel1Data: true,
         // 子节点标识
         childNodeID: 'hasChild'
       })
@@ -39,15 +38,23 @@ export default {
     // 默认节点名
     defaultProps: {
       type: Object,
-      default: () => ({})
+      default: () => ({
+        children: 'children',
+        label: 'label'
+      })
     }
   },
   data() {
     return {
+      // 展开数据
       arr: []
     };
   },
-  computed: {},
+  computed: {
+    customOpen() {
+      return this.arr.slice(0, 1);
+    }
+  },
   mounted() {
     if (this.options.expandLevel1Data) {
       this.init();
@@ -62,7 +69,7 @@ export default {
       tree.forEach(elem => {
         if (elem[this.options.childNodeID] && elem[this.options.childNodeID] === true) {
           this.arr.push(elem.id);
-          this.dfs(elem.children);
+          this.dfs(elem[this.defaultProps.children]);
         }
       });
     },
