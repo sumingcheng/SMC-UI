@@ -1,8 +1,9 @@
 <template>
   <div>
-    <el-tree class="treeStyle" :show-checkbox="isCheckbox" :filter-node-method="filterNode" @node-click="treeClick"
-        :props="defaultProps" :data="TreeData" :default-expanded-keys="customOpen"
-        :default-expand-all="defaultExpansion" ref="tree" :expand-on-click-node="true" node-key="id" :indent="30">
+    <el-tree class="treeStyle" :show-checkbox="options.isCheckbox" :filter-node-method="filterNode"
+        @node-click="treeClick" :props="defaultProps" :data="TreeData" :default-expanded-keys="customOpen"
+        :default-expand-all="options.defaultExpansion" ref="tree" :expand-on-click-node="true" node-key="id"
+        :indent="options.indent">
     </el-tree>
   </div>
 </template>
@@ -17,18 +18,14 @@ export default {
         // 默认展开一级
         expandLevel1Data: true,
         // 子节点标识
-        childNodeID: 'hasChild'
+        childNodeID: 'hasChild',
+        //   缩进
+        indent: 30,
+        // 是否可选
+        isCheckbox: false,
+        // 是否全部展开
+        defaultExpansion: false
       })
-    },
-    // 是否可选
-    isCheckbox: {
-      type: Boolean,
-      default: false
-    },
-    // 是否全部展开
-    defaultExpansion: {
-      type: Boolean,
-      default: false
     },
     // 树形结构数据
     TreeData: {
@@ -87,6 +84,7 @@ export default {
 <style lang="scss" scoped>
 .treeStyle {
   width: 300px;
+  height: 100%;
 
   ::v-deep .el-tree-node__label {
     overflow: hidden;

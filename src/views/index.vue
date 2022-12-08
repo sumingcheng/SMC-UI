@@ -23,7 +23,10 @@ export default {
     return {
       options: {
         expandLevel1Data: true,
-        childNodeID: 'hasChild'
+        childNodeID: 'hasChild',
+        indent: 30,
+        isCheckbox: true,
+        defaultExpansion: false
       },
       activeIndex: '1',
       defaultProps: {
