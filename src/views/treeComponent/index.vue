@@ -4,6 +4,7 @@
         @node-click="treeClick" :props="defaultProps" :data="TreeData" :default-expanded-keys="customOpen"
         :default-expand-all="options.defaultExpansion" ref="tree" :expand-on-click-node="true" node-key="id"
         :indent="options.indent">
+
     </el-tree>
   </div>
 </template>
@@ -19,7 +20,7 @@ export default {
         expandLevel1Data: true,
         // 子节点标识
         childNodeID: 'hasChild',
-        //   缩进
+        // 缩进
         indent: 30,
         // 是否可选
         isCheckbox: false,
