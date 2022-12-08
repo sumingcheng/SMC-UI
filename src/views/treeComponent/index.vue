@@ -49,7 +49,7 @@ export default {
   },
   computed: {
     customOpen() {
-      return this.arr.slice(0, 2);
+      return this.arr.slice(0, 1);
     }
   },
   mounted() {
