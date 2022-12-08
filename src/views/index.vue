@@ -76,7 +76,7 @@ export default {
           } ]
         },
         {
-          id: 4,
+          id: 555,
           label: '一级 4',
           children: [ {
             id: 7,

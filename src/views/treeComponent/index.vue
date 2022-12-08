@@ -1,7 +1,7 @@
 <template>
   <div>
     <el-tree class="treeStyle" :show-checkbox="isCheckbox" :filter-node-method="filterNode" @node-click="treeClick"
-        :props="defaultProps" :data="TreeData" :default-expanded-keys="expandArray"
+        :props="defaultProps" :data="TreeData" :default-expanded-keys="arr"
         :default-expand-all="defaultExpansion"
         ref="tree" :expand-on-click-node="true" node-key="id" :indent="30">
     </el-tree>
@@ -42,12 +42,13 @@ export default {
   },
   methods: {
     init() {
+      // 默认展开一级
       this.dfs(this.TreeData);
     },
     dfs(tree) {
       tree.forEach(elem => {
-        this.arr.push(elem.id);
         if (elem.hasChild && elem.hasChild === true) {
+          this.arr.push(elem.id);
           this.dfs(elem.children);
         }
       });
