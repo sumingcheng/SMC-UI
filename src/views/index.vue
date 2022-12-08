@@ -8,7 +8,7 @@
       </el-menu-item>
     </el-menu>
     <div class="content">
-      <treeComponent :TreeData="TreeData" :defaultProps="defaultProps" :isCeheckbox="true"
+      <treeComponent :TreeData="TreeData" :defaultProps="defaultProps" :isCheckbox="true"
           :defaultExpansion="false"></treeComponent>
     </div>
   </div>
@@ -28,9 +28,11 @@ export default {
       TreeData: [ {
         id: 1,
         label: '一级 1',
+        hasChild: false,
         children: [ {
           id: 4,
           label: '二级 1-1',
+          hasChild: false,
           children: [ {
             id: 9,
             label: '三级 1-1-1'
