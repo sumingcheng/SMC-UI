@@ -11,7 +11,13 @@
 
 export default {
   props: {
+    // 是否可选
     isCheckbox: {
+      type: Boolean,
+      default: false
+    },
+    // 是否默认展开一级
+    expandLevel1Data: {
       type: Boolean,
       default: false
     },
@@ -38,7 +44,9 @@ export default {
   },
   computed: {},
   mounted() {
-    this.init();
+    if (this.expandLevel1Data) {
+      this.init();
+    }
   },
   methods: {
     init() {

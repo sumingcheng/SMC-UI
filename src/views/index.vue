@@ -9,17 +9,19 @@
     </el-menu>
     <div class="content">
       <treeComponent :TreeData="TreeData" :defaultProps="defaultProps" :isCheckbox="true"
-          :defaultExpansion="false"></treeComponent>
+          :defaultExpansion="false" :expandLevel1Data="expandLevel1Data"></treeComponent>
     </div>
   </div>
 </template>
 
 <script>
 import treeComponent from '@/views/treeComponent/index.vue';
+import { tree } from '@/mock/mock';
 
 export default {
   data() {
     return {
+      expandLevel1Data: false,
       activeIndex: '1',
       defaultProps: {
         children: 'children',
@@ -122,6 +124,14 @@ export default {
   },
   components: {
     treeComponent
+  },
+  computed: {
+    treeData() {
+      return tree;
+    }
+  },
+  mounted() {
+
   },
   methods: {
     handleSelect(key, keyPath) {
