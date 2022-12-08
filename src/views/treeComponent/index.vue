@@ -11,13 +11,18 @@
 
 export default {
   props: {
+    // 是否默认展开一级
+    options: {
+      type: Object,
+      default: () => ({
+        // 默认展开一级
+        expandLevel1Data: false,
+        // 子节点标识
+        childNodeID: 'hasChild'
+      })
+    },
     // 是否可选
     isCheckbox: {
-      type: Boolean,
-      default: false
-    },
-    // 是否默认展开一级
-    expandLevel1Data: {
       type: Boolean,
       default: false
     },
@@ -44,7 +49,7 @@ export default {
   },
   computed: {},
   mounted() {
-    if (this.expandLevel1Data) {
+    if (this.options.expandLevel1Data) {
       this.init();
     }
   },
@@ -55,7 +60,7 @@ export default {
     },
     dfs(tree) {
       tree.forEach(elem => {
-        if (elem.hasChild && elem.hasChild === true) {
+        if (elem[this.options.childNodeID] && elem[this.options.childNodeID] === true) {
           this.arr.push(elem.id);
           this.dfs(elem.children);
         }
@@ -63,17 +68,6 @@ export default {
     },
     treeClick(data) {
       console.log(data);
-      // this.temp.push(data.id);
-      // this.treeClickData = data;
-      // let t = this.temp.some((elem, index, arr) => {
-      //   if (elem === arr[index - 1]) {
-      //     this.temp = [];
-      //     this.submitTree();
-      //     return true;
-      //   } else {
-      //     return false;
-      //   }
-      // });
     },
     filterNode(value, data) {
       if (!value) return true;

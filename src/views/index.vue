@@ -8,8 +8,8 @@
       </el-menu-item>
     </el-menu>
     <div class="content">
-      <treeComponent :TreeData="TreeData" :defaultProps="defaultProps" :isCheckbox="true"
-          :defaultExpansion="false" :expandLevel1Data="expandLevel1Data"></treeComponent>
+      <treeComponent :TreeData="TreeData" :options="options" :defaultProps="defaultProps" :isCheckbox="true"
+          :defaultExpansion="false"></treeComponent>
     </div>
   </div>
 </template>
@@ -21,6 +21,10 @@ import { tree } from '@/mock/mock';
 export default {
   data() {
     return {
+      options: {
+        expandLevel1Data: true,
+        childNodeID: 'hasChild'
+      },
       expandLevel1Data: false,
       activeIndex: '1',
       defaultProps: {
