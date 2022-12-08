@@ -33,14 +33,24 @@ export default {
   },
   data() {
     return {
-      expandArray: [],
+      arr: []
     };
   },
+  computed: {},
   mounted() {
+    this.init();
   },
   methods: {
-    customDeployment() {
-
+    init() {
+      this.dfs(this.TreeData);
+    },
+    dfs(tree) {
+      tree.forEach(elem => {
+        this.arr.push(elem.id);
+        if (elem.hasChild && elem.hasChild === true) {
+          this.dfs(elem.children);
+        }
+      });
     },
     treeClick(data) {
       console.log(data);
