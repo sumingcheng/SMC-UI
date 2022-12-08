@@ -9,7 +9,15 @@
     </el-menu>
     <div class="content">
       <treeComponent :TreeData="treeData" :options="options" :defaultProps="defaultProps" :isCheckbox="true"
-          :defaultExpansion="false"></treeComponent>
+          :defaultExpansion="false" @nodeClick="nodeClick"></treeComponent>
+    </div>
+    <div class="exhibition">
+      <h1>点击的数据</h1>
+      <ul>
+        <li>是否永远子节点：{{ nodeData.hasChild === true ? '是' : '否' }}</li>
+        <li>标题：{{ nodeData.label }}</li>
+        <li>节点id：{{ nodeData.id }}</li>
+      </ul>
     </div>
   </div>
 </template>
@@ -33,99 +41,11 @@ export default {
         children: 'children',
         label: 'label'
       },
-      TreeData: [ {
-        id: 1,
-        label: '一级 1',
-        hasChild: true,
-        children: [ {
-          id: 4,
-          label: '二级 1-1',
-          hasChild: true,
-          children: [ {
-            id: 9,
-            label: '三级 1-1-1'
-          }, {
-            id: 10,
-            label: '三级 1-1-2'
-          } ]
-        } ]
+      nodeData: {
+        hasChild: '',
+        label: '',
+        id: '',
       },
-        {
-          id: 2,
-          label: '一级 2',
-          hasChild: false,
-          children: [ {
-            id: 5,
-            label: '二级 2-1'
-          }, {
-            id: 6,
-            label: '二级 2-2'
-          } ]
-        },
-        {
-          id: 3,
-          label: '一级 3',
-          children: [ {
-            id: 7,
-            label: '二级 3-1'
-          }, {
-            id: 8,
-            label: '二级 3-2',
-            children: [ {
-              id: 11,
-              label: '三级 3-2-1'
-            }, {
-              id: 12,
-              label: '三级 3-2-2'
-            }, {
-              id: 13,
-              label: '三级 3-2-3'
-            } ]
-          } ]
-        },
-        {
-          id: 555,
-          label: '一级 4',
-          children: [ {
-            id: 7,
-            label: '二级 3-1'
-          }, {
-            id: 8,
-            label: '二级 3-2',
-            children: [ {
-              id: 11,
-              label: '三级 3-2-1'
-            }, {
-              id: 12,
-              label: '三级 3-2-2'
-            }, {
-              id: 13,
-              label: '三级 3-2-3'
-            } ]
-          } ]
-        },
-        {
-          id: 5,
-          label: '一级 5',
-          children: [ {
-            id: 7,
-            label: '二级 3-1'
-          }, {
-            id: 8,
-            label: '二级 3-2',
-            children: [ {
-              id: 11,
-              label: '三级 3-2-1'
-            }, {
-              id: 12,
-              label: '三级 3-2-2'
-            }, {
-              id: 13,
-              label: '三级 3-2-3'
-            } ]
-          } ]
-        }
-      ],
     };
   },
   components: {
@@ -142,6 +62,10 @@ export default {
 
   },
   methods: {
+    nodeClick(data) {
+      this.nodeData = data;
+      console.log(data);
+    },
     handleSelect(key, keyPath) {
       console.log(key, keyPath);
     },
@@ -153,6 +77,17 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.exhibition {
+  display: block;
+  position: absolute;
+  top: 100px;
+  left: 350px;
 
+  li {
+    font-size: 18px;
+    font-weight: bold;
+    line-height: 40px;
+  }
+}
 
 </style>

@@ -49,7 +49,7 @@ export default {
   },
   computed: {
     customOpen() {
-      return this.arr.slice(0, 1);
+      return this.arr.slice(0, 2);
     }
   },
   mounted() {
@@ -64,18 +64,17 @@ export default {
     },
     dfs(tree) {
       tree.forEach(elem => {
-        if (elem[this.options.childNodeID] && elem[this.options.childNodeID] === true) {
+        if (elem[this.options.childNodeID] && elem[this.defaultProps.children] && elem[this.options.childNodeID] === true) {
           this.arr.push(elem.id);
           this.dfs(elem[this.defaultProps.children]);
         }
       });
     },
     treeClick(data) {
-      console.log(data);
+      this.$emit('nodeClick', data);
     },
     filterNode(value, data) {
       if (!value) return true;
-      return data.unitName.indexOf(value) !== - 1;
     }
   }
 };
@@ -113,7 +112,6 @@ export default {
       font-weight: bold;
       color: #409eff;
     }
-
   }
 }
 </style>
