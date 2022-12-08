@@ -3,13 +3,13 @@
     <el-menu :default-active="activeIndex" class="el-menu-demo" mode="horizontal" @select="handleSelect"
         background-color="#545c64" text-color="#fff" active-text-color="#ffd04b">
       <el-menu-item index="1">树形组件</el-menu-item>
-      <el-submenu index="2">
-        <template v-slot="title">分页组件</template>
-        <el-menu-item index="2-1">太原封装</el-menu-item>
-      </el-submenu>
+      <el-menu-item index="2">
+        <el-menu-item index="2-1">分页封装</el-menu-item>
+      </el-menu-item>
     </el-menu>
     <div class="content">
-      <treeComponent :TreeData="TreeData" :defaultProps="defaultProps"></treeComponent>
+      <treeComponent :TreeData="TreeData" :defaultProps="defaultProps" :isCeheckbox="true"
+          :defaultExpansion="false"></treeComponent>
     </div>
   </div>
 </template>
@@ -132,5 +132,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+
 
 </style>
