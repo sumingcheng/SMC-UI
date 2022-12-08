@@ -14,14 +14,15 @@ export default {
       type: Array,
       default: () => []
     },
+    defaultProps: {
+      type: Object,
+      default: () => ({})
+    }
   },
   data() {
     return {
       expandArray: [],
-      defaultProps: {
-        children: 'children',
-        label: 'label'
-      }
+
     };
   },
   mounted() {

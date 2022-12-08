@@ -1,6 +1,6 @@
 <template>
   <div>
-    <el-menu :default-active="activeIndex2" class="el-menu-demo" mode="horizontal" @select="handleSelect"
+    <el-menu :default-active="activeIndex" class="el-menu-demo" mode="horizontal" @select="handleSelect"
         background-color="#545c64" text-color="#fff" active-text-color="#ffd04b">
       <el-menu-item index="1">树形组件</el-menu-item>
       <el-submenu index="2">
@@ -9,7 +9,7 @@
       </el-submenu>
     </el-menu>
     <div class="content">
-      <treeComponent :TreeData="TreeData"></treeComponent>
+      <treeComponent :TreeData="TreeData" :defaultProps="defaultProps"></treeComponent>
     </div>
   </div>
 </template>
@@ -21,7 +21,10 @@ export default {
   data() {
     return {
       activeIndex: '1',
-      activeIndex2: '1',
+      defaultProps: {
+        children: 'children',
+        label: 'label'
+      },
       TreeData: [ {
         id: 1,
         label: '一级 1',
