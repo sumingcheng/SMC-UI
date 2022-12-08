@@ -1,21 +1,46 @@
-# sum-ui
+# vue-tianjin
 
-> A Vue.js project
-
-## Build Setup
-
-``` bash
-# install dependencies
-npm install
-
-# serve with hot reload at localhost:8080
-npm run dev
-
-# build for production with minification
-npm run build
-
-# build for production and view the bundle analyzer report
-npm run build --report
+## Project setup
+```
+npm installtia
 ```
 
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+### Compiles and hot-reloads for development
+```
+npm run dev
+```
+
+### Compiles and minifies for production
+```
+npm run build
+```
+
+### 流程说明
+
+用户登录 -> 判断考核状态 -> 提交考核
+
+#### 用户登录
+
+自动获取i国网的用户数据，持久化一下，确保全局都可以拿到，应该可以拿到用户编号。
+
+#### 考核流程
+
+用户进入，首先检查考核状态，如果为月度考核，则进入月度考核页面，如果为年度考核，则进入年度考核页面，如果没有考核，则提示无考核任务
+
+#### 年度考核
+
+当前登录的用户可以推荐一名C等级人员，如果服务端返回的可用A等级人数不为0，可推荐A等级人员，不能超过可用A等级人数。
+
+C等级与A等级互斥。
+
+#### 月度考核
+
+区分科员与领导，科员就是自己为自己打分，领导就是为其他科员打分与年度考核类似。
+
+kind != 0 就是领导打分
+
+### 状态码说明
+
+403 - 与考核状态有关，系统可以提示未开启考核
+401 - 找不到该用户，系统可以提示没有您的考核任务
+409 - 服务端会返回错误信息，直接提示返回的message，如果message为空，则提示系统错误

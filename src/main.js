@@ -1,18 +1,33 @@
 import Vue from 'vue';
-import App from './App';
+import App from './App.vue';
 import router from './router';
-import ElementUI from 'element-ui';
-import 'element-ui/lib/theme-chalk/index.css';
-// 样式
-import '@/assets/scss/reset.scss';
+import store from './store';
+import '@vant/touch-emulator';
+// 全局样式
+import '@/assets/reset.scss';
+import '@/assets/index.scss';
+// import './rem';
+import Vant from 'vant';
+import 'vant/lib/index.css';
 
-Vue.config.productionTip = false;
+Vue.use(Vant);
+// 引入全局工具类
+import * as utils from '@/tools/Tool';
 
-Vue.use(ElementUI);
+Vue.prototype.$utils = utils;
+
+// 注册过滤器
+import * as filters from '@/filters';
+
+Object.keys(filters).forEach(key => {
+  Vue.filter(key, filters[key]);
+});
 
 new Vue({
-  el: '#app',
   router,
-  components: { App },
-  template: '<App/>'
-});
+  store,
+  render: h => h(App)
+}).$mount('#app');
+
+
+
