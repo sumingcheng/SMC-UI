@@ -1,55 +1,40 @@
-// 全局样式
-
-@charset "utf-8";
-body, h1, h2, h3, h4, h5, h6, hr, p, blockquote, dl, dt, dd, ul, ol, li, button, input, textarea, th, td, span {
+body, ol, ul, h1, h2, h3, h4, h5, h6, p, th, td, dl, dd, form, fieldset, legend, input, textarea, select {
   margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-html, body {
-  height: 100%;
+  padding: 0
 }
 
 body {
-  font-style: normal;
-  font-family: "open sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  background: #fff;
+  -webkit-text-size-adjust: 100%
 }
 
-// el-table 统一样式
-.el-table {
-  width: 100%;
-
-  .el-table__header-wrapper th {
-    background: #8AA8FF !important;
-    height: 0.4rem;
-
-    div {
-      font-size: 0.15rem;
-      color: #ffffff;
-    }
-  }
-
-  .el-table__body-wrapper td {
-    height: 0.4rem;
-
-    div {
-      font-size: 0.16rem;
-      color: #000000;
-    }
-  }
+a {
+  color: #172c45;
+  text-decoration: none
 }
 
-// el-button 统一样式
-.el-button {
-  // margin-left: 0.2rem !important;
-  background: #3379f2 !important;
-
-  span {
-    color: #fffefe;
-  }
+a:hover {
+  text-decoration: underline
 }
 
-.el-button:hover {
-  background: #4f8df8 !important;
+em {
+  font-style: normal
+}
+
+li {
+  list-style: none
+}
+
+img {
+  border: 0;
+  vertical-align: middle
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0
+}
+
+p {
+  word-wrap: break-word
 }
