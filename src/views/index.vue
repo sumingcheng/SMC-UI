@@ -25,26 +25,28 @@ export default {
         children: 'children',
         label: 'label'
       },
-      TreeData: [ {
-        id: 1,
-        label: '一级 1',
-        hasChild: false,
-        children: [ {
-          id: 4,
-          label: '二级 1-1',
+      TreeData: [
+        {
+          id: 1,
+          label: '一级 1',
           hasChild: false,
           children: [ {
-            id: 9,
-            label: '三级 1-1-1'
-          }, {
-            id: 10,
-            label: '三级 1-1-2'
+            id: 4,
+            label: '二级 1-1',
+            hasChild: false,
+            children: [ {
+              id: 9,
+              label: '三级 1-1-1'
+            }, {
+              id: 10,
+              label: '三级 1-1-2'
+            } ]
           } ]
-        } ]
-      },
+        },
         {
           id: 2,
           label: '一级 2',
+          hasChild: false,
           children: [ {
             id: 5,
             label: '二级 2-1'
