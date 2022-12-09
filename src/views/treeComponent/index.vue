@@ -2,7 +2,7 @@
   <div>
     <el-tree ref="tree" :data="TreeData" :default-expand-all="defaultExpansion"
         :default-expanded-keys="customOpen" :expand-on-click-node="true" :filter-node-method="filterNode"
-        :icon-class="isIcon" :indent="indent" :props="defaultProps" node-key="id"
+        :icon-class="isIcon" :indent="indent" :props="defaultProps" node-key="id" :default-checked-keys="checkedArr"
         :show-checkbox="isCheckbox" class="treeStyle" @node-click="treeClick">
       <template v-slot="{data,node}">
         <span :class="isIcon && data.levelOne ? 'lOneNodeIcon' : ''">{{ data[label] }}</span>
@@ -30,6 +30,8 @@ export default {
         defaultExpansion: false,
         // 是否显示三角,false 为显示自定义图标
         isIcon: false,
+        // 是否默认选择数据
+        checkedName: 'checked'
       })
     },
     // 树形结构数据
@@ -49,10 +51,15 @@ export default {
   data() {
     return {
       // 展开数据
-      arr: []
+      arr: [],
+      // 选择数据
+      checkedArr: []
     };
   },
   computed: {
+    checkedName() {
+      return this.options.checkedName;
+    },
     childNodeID() {
       return this.options.childNodeID;
     },
@@ -78,8 +85,7 @@ export default {
       return this.options.isIcon === false ? ' ' : '';
     }
   },
-  mounted() {
-    console.log(this.TreeData);
+  created() {
     if (this.options.expandLevel1Data) {
       this.init();
     }
@@ -88,6 +94,18 @@ export default {
     init() {
       // 默认展开一级
       this.dfs(this.TreeData);
+      this.checkedArrCreate(this.TreeData);
+      console.log(this.checkedArr);
+    },
+    checkedArrCreate(TreeData) {
+      TreeData.forEach((elem) => {
+        if (elem[this.checkedName] === true) {
+          this.checkedArr.push(elem.id);
+          if (elem[this.children] && elem[this.childNodeID] === true) {
+            this.checkedArrCreate(elem[this.children]);
+          }
+        }
+      });
     },
     dfs(tree) {
       tree.forEach(elem => {
