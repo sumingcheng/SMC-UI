@@ -1,5 +1,9 @@
 <template>
   <div>
+    <div style="display: inline-block">
+      <el-button type="primary" @click="selectAll">全选</el-button>
+      <el-button type="primary" @click="deselect">取消选择</el-button>
+    </div>
     <el-tree ref="tree" :data="TreeData" :default-expand-all="defaultExpansion"
         :default-expanded-keys="customOpen" :expand-on-click-node="true" :filter-node-method="filterNode"
         :icon-class="isIcon" :indent="indent" :props="defaultProps" node-key="id" :default-checked-keys="checkedArr"
@@ -91,15 +95,21 @@ export default {
     }
   },
   created() {
-    if (this.options.expandLevel1Data) {
-      this.init();
-    }
+    this.init();
   },
   methods: {
     init() {
-      // 默认展开一级
-      this.dfs(this.TreeData);
+      if (this.options.expandLevel1Data) {
+        // 默认展开一级
+        this.dfs(this.TreeData);
+      }
       this.checkedArrCreate(this.TreeData);
+    },
+    selectAll(node) {
+      this.$refs.tree.setCheckedNodes({});
+    },
+    deselect() {
+
     },
     checkedArrCreate(TreeData) {
       TreeData.forEach((elem) => {

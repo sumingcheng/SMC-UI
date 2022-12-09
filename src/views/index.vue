@@ -9,7 +9,7 @@
     </el-menu>
     <div class="exhibition">
       <div>
-        <treeComponent :TreeData="treeData" :options="options" :defaultProps="defaultProps" :isCheckbox="true"
+        <treeComponent :TreeData.sync="treeData" :options="options" :defaultProps="defaultProps" :isCheckbox="true"
             :defaultExpansion="false" @nodeClick="nodeClick">
         </treeComponent>
       </div>
@@ -49,6 +49,7 @@ export default {
         children: 'children',
         label: 'label'
       },
+      treeArr: [],
       // 数据
       activeIndex: '1',
       nodeData: {
@@ -56,6 +57,7 @@ export default {
         label: '',
         id: '',
       },
+      arr: [],
     };
   },
   components: {
