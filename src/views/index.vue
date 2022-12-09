@@ -19,6 +19,8 @@
           <li>是否永远子节点：{{ nodeData.hasChild === true ? '是' : '否' }}</li>
           <li>标题：{{ nodeData.label }}</li>
           <li>节点id：{{ nodeData.id }}</li>
+          <li>是否选中：{{ nodeData.checked === true ? '是' : '否' }}</li>
+          <li>是否是一级节点：{{ nodeData.levelOne === true ? '是' : '否' }}</li>
         </ul>
       </div>
     </div>
@@ -68,6 +70,7 @@ export default {
   methods: {
     nodeClick(data) {
       this.nodeData = data;
+      console.log(data);
     },
     handleSelect(key, keyPath) {
       // console.log(key, keyPath);

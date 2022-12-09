@@ -16,8 +16,9 @@ const tree = Mock.mock({
         'children|5': [ {
           'id|+1': 200,
           label: '@protocol()',
-          'disabled|1': true,
+          'checked|1-2': true,
           'hasChild|1-2': true,
+          'disabled|1': true,
         } ]
       } ]
     }

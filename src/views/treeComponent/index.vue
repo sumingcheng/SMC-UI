@@ -100,7 +100,6 @@ export default {
       // 默认展开一级
       this.dfs(this.TreeData);
       this.checkedArrCreate(this.TreeData);
-      console.log(this.checkedArr);
     },
     checkedArrCreate(TreeData) {
       TreeData.forEach((elem) => {
