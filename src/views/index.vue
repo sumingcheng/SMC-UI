@@ -34,6 +34,7 @@ import { tree } from '@/mock/mock';
 export default {
   data() {
     return {
+      // 配置
       options: {
         expandLevel1Data: true,
         childNodeID: 'hasChild',
@@ -44,11 +45,12 @@ export default {
         checkedName: 'checked',
         customIcon: false,
       },
-      activeIndex: '1',
       defaultProps: {
         children: 'children',
         label: 'label'
       },
+      // 数据
+      activeIndex: '1',
       nodeData: {
         hasChild: '',
         label: '',
