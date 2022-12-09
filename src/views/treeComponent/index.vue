@@ -1,11 +1,11 @@
 <template>
   <div>
-    <el-tree class="treeStyle" :show-checkbox="options.isCheckbox" :filter-node-method="filterNode"
-        @node-click="treeClick" :props="defaultProps" :data="TreeData" :default-expanded-keys="customOpen"
-        :default-expand-all="options.defaultExpansion" ref="tree" :expand-on-click-node="true" node-key="id"
-        :indent="options.indent">
+    <el-tree ref="tree" :data="TreeData" :default-expand-all="defaultExpansion"
+        :default-expanded-keys="customOpen" :expand-on-click-node="true" :filter-node-method="filterNode"
+        :icon-class="isIcon" :indent="indent" :props="defaultProps" node-key="id"
+        :show-checkbox="isCheckbox" class="treeStyle" @node-click="treeClick">
       <template v-slot="{data,node}">
-        <span :class="data.levelOne===true?'lOneNodeIcon':''">{{ data.name }}</span>
+        <span :class="isIcon && data.levelOne ? 'lOneNodeIcon' : ''">{{ data[label] }}</span>
       </template>
     </el-tree>
   </div>
@@ -27,7 +27,9 @@ export default {
         // 是否可选
         isCheckbox: false,
         // 是否全部展开
-        defaultExpansion: false
+        defaultExpansion: false,
+        // 是否显示三角,false 为显示自定义图标
+        isIcon: false,
       })
     },
     // 树形结构数据
@@ -51,8 +53,29 @@ export default {
     };
   },
   computed: {
+    childNodeID() {
+      return this.options.childNodeID;
+    },
+    children() {
+      return this.defaultProps.children;
+    },
+    label() {
+      return this.defaultProps.label;
+    },
+    isCheckbox() {
+      return this.options.isCheckbox;
+    },
+    defaultExpansion() {
+      return this.options.defaultExpansion;
+    },
+    indent() {
+      return parseInt(this.options.indent);
+    },
     customOpen() {
       return this.arr.slice(0, 1);
+    },
+    isIcon() {
+      return this.options.isIcon === false ? ' ' : '';
     }
   },
   mounted() {
@@ -68,9 +91,9 @@ export default {
     },
     dfs(tree) {
       tree.forEach(elem => {
-        if (elem[this.options.childNodeID] && elem[this.defaultProps.children] && elem[this.options.childNodeID] === true) {
+        if (elem[this.childNodeID] && elem[this.children] && elem[this.childNodeID] === true) {
           this.arr.push(elem.id);
-          this.dfs(elem[this.defaultProps.children]);
+          this.dfs(elem[this.children]);
         }
       });
     },
@@ -88,8 +111,20 @@ export default {
 .treeStyle {
   height: 100%;
 
-  .lOneNodeIcon {
-
+  // 一级样式
+  ::v-deep .lOneNodeIcon {
+    &:before {
+      display: inline-block;
+      vertical-align: middle;
+      content: "";
+      position: relative;
+      width: 15px;
+      height: 15px;
+      margin-right: 10px;
+      background-image: url("@/assets/imgs/512.png");
+      background-repeat: no-repeat;
+      background-size: 100% 100%;
+    }
   }
 
   ::v-deep .el-tree-node__label {

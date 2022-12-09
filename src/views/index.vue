@@ -34,9 +34,10 @@ export default {
       options: {
         expandLevel1Data: true,
         childNodeID: 'hasChild',
+        defaultExpansion: false,
         indent: 30,
         isCheckbox: true,
-        defaultExpansion: false
+        isIcon: true,
       },
       activeIndex: '1',
       defaultProps: {
@@ -64,10 +65,9 @@ export default {
   methods: {
     nodeClick(data) {
       this.nodeData = data;
-      console.log(data);
     },
     handleSelect(key, keyPath) {
-      console.log(key, keyPath);
+      // console.log(key, keyPath);
     },
   }
 };
