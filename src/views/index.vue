@@ -39,7 +39,8 @@ export default {
         indent: 30,
         isCheckbox: true,
         isIcon: true,
-        checkedName: 'checked'
+        checkedName: 'checked',
+        customIcon: false,
       },
       activeIndex: '1',
       defaultProps: {

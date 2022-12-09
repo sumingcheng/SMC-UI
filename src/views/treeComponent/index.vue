@@ -5,7 +5,7 @@
         :icon-class="isIcon" :indent="indent" :props="defaultProps" node-key="id" :default-checked-keys="checkedArr"
         :show-checkbox="isCheckbox" class="treeStyle" @node-click="treeClick">
       <template v-slot="{data,node}">
-        <span :class="isIcon && data.levelOne ? 'lOneNodeIcon' : ''">{{ data[label] }}</span>
+        <span :class="customIcon && data.levelOne ? 'lOneNodeIcon' : ''">{{ data[label] }}</span>
       </template>
     </el-tree>
   </div>
@@ -31,7 +31,9 @@ export default {
         // 是否显示三角,false 为显示自定义图标
         isIcon: false,
         // 是否默认选择数据
-        checkedName: 'checked'
+        checkedName: 'checked',
+        // 自定义图标
+        customIcon: false,
       })
     },
     // 树形结构数据
@@ -57,6 +59,9 @@ export default {
     };
   },
   computed: {
+    customIcon() {
+      return this.options.customIcon;
+    },
     checkedName() {
       return this.options.checkedName;
     },
