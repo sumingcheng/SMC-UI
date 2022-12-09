@@ -4,7 +4,9 @@
         @node-click="treeClick" :props="defaultProps" :data="TreeData" :default-expanded-keys="customOpen"
         :default-expand-all="options.defaultExpansion" ref="tree" :expand-on-click-node="true" node-key="id"
         :indent="options.indent">
-
+      <template v-slot="{data,node}">
+        <span :class="data.levelOne===true?'lOneNodeIcon':''">{{ data.name }}</span>
+      </template>
     </el-tree>
   </div>
 </template>
@@ -54,6 +56,7 @@ export default {
     }
   },
   mounted() {
+    console.log(this.TreeData);
     if (this.options.expandLevel1Data) {
       this.init();
     }
@@ -83,8 +86,11 @@ export default {
 
 <style lang="scss" scoped>
 .treeStyle {
-  width: 300px;
   height: 100%;
+
+  .lOneNodeIcon {
+
+  }
 
   ::v-deep .el-tree-node__label {
     overflow: hidden;

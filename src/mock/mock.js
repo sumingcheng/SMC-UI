@@ -6,6 +6,7 @@ const tree = Mock.mock({
       'id|+1': 1,
       label: '@city()',
       'hasChild|1-2': true,
+      'levelOne': true,
       'children|10': [ {
         'id|+100': 1,
         label: '@county(true)',

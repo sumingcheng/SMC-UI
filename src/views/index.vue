@@ -7,17 +7,19 @@
         <el-menu-item index="2-1">分页封装</el-menu-item>
       </el-menu-item>
     </el-menu>
-    <div class="content">
-      <treeComponent :TreeData="treeData" :options="options" :defaultProps="defaultProps" :isCheckbox="true"
-          :defaultExpansion="false" @nodeClick="nodeClick"></treeComponent>
-    </div>
     <div class="exhibition">
-      <h1>点击的数据</h1>
-      <ul>
-        <li>是否永远子节点：{{ nodeData.hasChild === true ? '是' : '否' }}</li>
-        <li>标题：{{ nodeData.label }}</li>
-        <li>节点id：{{ nodeData.id }}</li>
-      </ul>
+      <div>
+        <treeComponent :TreeData="treeData" :options="options" :defaultProps="defaultProps" :isCheckbox="true"
+            :defaultExpansion="false" @nodeClick="nodeClick"></treeComponent>
+      </div>
+      <div class="content">
+        <h1>点击的数据</h1>
+        <ul>
+          <li>是否永远子节点：{{ nodeData.hasChild === true ? '是' : '否' }}</li>
+          <li>标题：{{ nodeData.label }}</li>
+          <li>节点id：{{ nodeData.id }}</li>
+        </ul>
+      </div>
     </div>
   </div>
 </template>
@@ -54,12 +56,10 @@ export default {
   computed: {
     treeData() {
       let { array } = tree;
-      console.log(array);
       return array;
     }
   },
   mounted() {
-
   },
   methods: {
     nodeClick(data) {
@@ -69,19 +69,19 @@ export default {
     handleSelect(key, keyPath) {
       console.log(key, keyPath);
     },
-    taiyuan() {
-      this.$router.push({ path: '/taiyuan' });
-    }
   }
 };
 </script>
 
 <style lang="scss" scoped>
 .exhibition {
-  display: block;
-  position: absolute;
-  top: 100px;
-  left: 350px;
+  display: grid;
+  grid-template-columns: repeat(4, 25%);
+  grid-template-rows:  repeat(4, 25%);
+
+  .content {
+    margin: 20px;
+  }
 
   li {
     font-size: 18px;
