@@ -7,4 +7,7 @@
 5. 点击节点返回数据
 6. 配置传入defaultProps
 7. 配置子节点标识childNodeID
-8. moke.js模拟数据
+8. 配置一级图表
+9. 配置是否隐藏三角
+10. 
+11. moke.js模拟数据

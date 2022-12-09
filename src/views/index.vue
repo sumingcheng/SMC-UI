@@ -10,10 +10,11 @@
     <div class="exhibition">
       <div>
         <treeComponent :TreeData="treeData" :options="options" :defaultProps="defaultProps" :isCheckbox="true"
-            :defaultExpansion="false" @nodeClick="nodeClick"></treeComponent>
+            :defaultExpansion="false" @nodeClick="nodeClick">
+        </treeComponent>
       </div>
       <div class="content">
-        <h1>点击的数据</h1>
+        <h1>点击的数据：{{ nodeData.id }}</h1>
         <ul>
           <li>是否永远子节点：{{ nodeData.hasChild === true ? '是' : '否' }}</li>
           <li>标题：{{ nodeData.label }}</li>
