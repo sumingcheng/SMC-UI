@@ -75,7 +75,7 @@ export default {
   methods: {
     nodeClick(data) {
       this.nodeData = data;
-      console.log(data);
+
     },
     handleSelect(key, keyPath) {
       // console.log(key, keyPath);

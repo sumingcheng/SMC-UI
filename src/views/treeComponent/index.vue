@@ -71,6 +71,8 @@ export default {
       },
       set(newVal) {
         this.$emit('update:TreeData', newVal);
+        switch (newVal) {
+        }
       }
     },
     isCheck() {
@@ -149,6 +151,7 @@ export default {
       });
     },
     treeClick(data) {
+      console.dir(data);
       this.$emit('nodeClick', data);
     },
     filterNode(value, data) {
