@@ -36,7 +36,7 @@ export default {
     return {
       // 配置
       options: {
-        expandLevel1Data: true,
+        expandLevel1Data: false,
         childNodeID: 'hasChild',
         defaultExpansion: false,
         indent: 30,
@@ -44,6 +44,7 @@ export default {
         isIcon: true,
         checkedName: 'checked',
         customIcon: false,
+        isCheck: false,
       },
       defaultProps: {
         children: 'children',

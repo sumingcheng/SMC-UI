@@ -4,7 +4,7 @@
       <el-button type="primary" @click="selectAll">全选</el-button>
       <el-button type="primary" @click="deselect">取消选择</el-button>
     </div>
-    <el-tree ref="tree" :data="TreeData" :default-expand-all="defaultExpansion"
+    <el-tree ref="tree" :data="_TreeData" :default-expand-all="defaultExpansion"
         :default-expanded-keys="customOpen" :expand-on-click-node="true" :filter-node-method="filterNode"
         :icon-class="isIcon" :indent="indent" :props="defaultProps" node-key="id" :default-checked-keys="checkedArr"
         :show-checkbox="isCheckbox" class="treeStyle" @node-click="treeClick">
@@ -38,6 +38,8 @@ export default {
         checkedName: 'checked',
         // 自定义图标
         customIcon: false,
+        // 是否自动勾选
+        isCheck: false,
       })
     },
     // 树形结构数据
@@ -63,6 +65,20 @@ export default {
     };
   },
   computed: {
+    _TreeData: {
+      get() {
+        return this.TreeData;
+      },
+      set(newVal) {
+        this.$emit('update:TreeData', newVal);
+      }
+    },
+    isCheck() {
+      return this.options.isCheck;
+    },
+    expandLevel1Data() {
+      return this.options.expandLevel1Data;
+    },
     customIcon() {
       return this.options.customIcon;
     },
@@ -99,11 +115,14 @@ export default {
   },
   methods: {
     init() {
-      if (this.options.expandLevel1Data) {
+      if (this.expandLevel1Data) {
         // 默认展开一级
-        this.dfs(this.TreeData);
+        this.dfs(this._TreeData);
       }
-      this.checkedArrCreate(this.TreeData);
+      if (this.isCheck) {
+        // 是否自动勾选
+        this.checkedArrCreate(this._TreeData);
+      }
     },
     selectAll(node) {
       this.$refs.tree.setCheckedNodes({});
