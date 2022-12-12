@@ -1,5 +1,9 @@
 <template>
   <div>
+    <!--<el-input-->
+    <!--    placeholder="输入关键字进行过滤"-->
+    <!--    v-model="filterText">-->
+    <!--</el-input>-->
     <el-tree ref="tree" :data="_TreeData" :default-expand-all="defaultExpansion"
         :default-expanded-keys="customOpen" :expand-on-click-node="true" :filter-node-method="filterNode"
         :icon-class="isIcon" :indent="indent" :props="defaultProps" node-key="id" :default-checked-keys="checkedArr"
@@ -54,11 +58,17 @@ export default {
   },
   data() {
     return {
+      // filterText: '',
       // 展开数据
       arr: [],
       // 选择数据
       checkedArr: []
     };
+  },
+  watch: {
+    // filterText(val) {
+    //   this.$refs.tree.filter(val);
+    // }
   },
   computed: {
     _TreeData: {
@@ -153,10 +163,10 @@ export default {
       console.dir(data);
       this.$emit('nodeClick', data);
     },
-    filterNode(value, data) {
-      // if (!value) return true;
-      // return data.label.indexOf(value) !== - 1;
-    }
+    // filterNode(value, data) {
+    //   if (!value) return true;
+    //   return data.label.indexOf(value) !== - 1;
+    // }
   }
 };
 </script>
