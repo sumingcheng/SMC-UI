@@ -163,10 +163,10 @@ export default {
       console.dir(data);
       this.$emit('nodeClick', data);
     },
-    // filterNode(value, data) {
-    //   if (!value) return true;
-    //   return data.label.indexOf(value) !== - 1;
-    // }
+    filterNode(value, data) {
+      if (!value) return true;
+      return data.label.indexOf(value) !== - 1;
+    }
   }
 };
 </script>
