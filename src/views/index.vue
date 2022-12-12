@@ -14,7 +14,7 @@
         </treeComponent>
       </div>
       <div class="content">
-        <div style="display: inline-block">
+        <div style="display: inline-block; margin-bottom: 20px">
           <el-button type="primary" @click="selectAll">全选</el-button>
           <el-button type="primary" @click="deselect">取消选择</el-button>
         </div>

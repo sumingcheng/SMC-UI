@@ -7,7 +7,7 @@
     <el-tree ref="tree" :data="_TreeData" :default-expand-all="defaultExpansion"
         :default-expanded-keys="customOpen" :expand-on-click-node="true" :filter-node-method="filterNode"
         :icon-class="isIcon" :indent="indent" :props="defaultProps" node-key="id" :default-checked-keys="checkedArr"
-        :show-checkbox="isCheckbox" class="treeStyle" @node-click="treeClick" @check-change="handleCheckChange">
+        :show-checkbox="isCheckbox" class="treeStyle" @node-click="nodeClick" @check-change="handleCheckChange">
       <template v-slot="{data,node}">
         <span :class="customIcon && data.levelOne ? 'lOneNodeIcon' : ''">{{ data[label] }}</span>
       </template>
@@ -66,6 +66,9 @@ export default {
     };
   },
   watch: {
+    TreeData(val, newVal) {
+      console.log(val, newVal);
+    }
     // filterText(val) {
     //   this.$refs.tree.filter(val);
     // }
@@ -159,7 +162,7 @@ export default {
       });
     },
     // 节点文字点击
-    treeClick(data) {
+    nodeClick(data) {
       console.dir(data);
       this.$emit('nodeClick', data);
     },
