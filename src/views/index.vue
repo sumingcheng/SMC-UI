@@ -9,11 +9,15 @@
     </el-menu>
     <div class="exhibition">
       <div>
-        <treeComponent :TreeData.sync="treeData" :options="options" :defaultProps="defaultProps" :isCheckbox="true"
-            :defaultExpansion="false" @nodeClick="nodeClick" @checkChange="checkChange">
+        <treeComponent ref="treeCom" :TreeData.sync="treeData" :options="options" :defaultProps="defaultProps"
+            @nodeClick="nodeClick" @checkChange="checkChange">
         </treeComponent>
       </div>
       <div class="content">
+        <div style="display: inline-block">
+          <el-button type="primary" @click="selectAll">全选</el-button>
+          <el-button type="primary" @click="deselect">取消选择</el-button>
+        </div>
         <h1>点击的数据：{{ nodeData.id }}</h1>
         <ul>
           <li>是否永远子节点：{{ nodeData.hasChild === true ? '是' : '否' }}</li>
@@ -74,6 +78,12 @@ export default {
   mounted() {
   },
   methods: {
+    selectAll() {
+      this.$refs.treeCom.selectAll();
+    },
+    deselect() {
+      this.$refs.treeCom.deselect();
+    },
     checkChange(data, checked, indeterminate) {
       console.log(data, checked, indeterminate);
     },

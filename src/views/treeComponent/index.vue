@@ -1,9 +1,5 @@
 <template>
   <div>
-    <div style="display: inline-block;margin: 10px">
-      <el-button type="primary" @click="selectAll">全选</el-button>
-      <el-button type="primary" @click="deselect">取消选择</el-button>
-    </div>
     <el-tree ref="tree" :data="_TreeData" :default-expand-all="defaultExpansion"
         :default-expanded-keys="customOpen" :expand-on-click-node="true" :filter-node-method="filterNode"
         :icon-class="isIcon" :indent="indent" :props="defaultProps" node-key="id" :default-checked-keys="checkedArr"
