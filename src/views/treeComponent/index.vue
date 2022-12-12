@@ -1,13 +1,13 @@
 <template>
   <div>
-    <div style="display: inline-block">
+    <div style="display: inline-block;margin: 10px">
       <el-button type="primary" @click="selectAll">全选</el-button>
       <el-button type="primary" @click="deselect">取消选择</el-button>
     </div>
     <el-tree ref="tree" :data="_TreeData" :default-expand-all="defaultExpansion"
         :default-expanded-keys="customOpen" :expand-on-click-node="true" :filter-node-method="filterNode"
         :icon-class="isIcon" :indent="indent" :props="defaultProps" node-key="id" :default-checked-keys="checkedArr"
-        :show-checkbox="isCheckbox" class="treeStyle" @node-click="treeClick">
+        :show-checkbox="isCheckbox" class="treeStyle" @node-click="treeClick" @check-change="handleCheckChange">
       <template v-slot="{data,node}">
         <span :class="customIcon && data.levelOne ? 'lOneNodeIcon' : ''">{{ data[label] }}</span>
       </template>
@@ -71,8 +71,6 @@ export default {
       },
       set(newVal) {
         this.$emit('update:TreeData', newVal);
-        switch (newVal) {
-        }
       }
     },
     isCheck() {
@@ -126,11 +124,15 @@ export default {
         this.checkedArrCreate(this._TreeData);
       }
     },
-    selectAll(node) {
-      this.$refs.tree.setCheckedNodes({});
+    // 节点点击
+    handleCheckChange(data, checked, indeterminate) {
+      this.$emit('checkChange', data, checked, indeterminate);
+    },
+    selectAll() {
+      this.$refs.tree.setCheckedNodes(this._TreeData);
     },
     deselect() {
-
+      this.$refs.tree.setCheckedKeys([]);
     },
     checkedArrCreate(TreeData) {
       TreeData.forEach((elem) => {
@@ -150,12 +152,14 @@ export default {
         }
       });
     },
+    // 节点文字点击
     treeClick(data) {
       console.dir(data);
       this.$emit('nodeClick', data);
     },
     filterNode(value, data) {
-      if (!value) return true;
+      // if (!value) return true;
+      // return data.label.indexOf(value) !== - 1;
     }
   }
 };

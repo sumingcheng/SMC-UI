@@ -10,7 +10,7 @@
     <div class="exhibition">
       <div>
         <treeComponent :TreeData.sync="treeData" :options="options" :defaultProps="defaultProps" :isCheckbox="true"
-            :defaultExpansion="false" @nodeClick="nodeClick">
+            :defaultExpansion="false" @nodeClick="nodeClick" @checkChange="checkChange">
         </treeComponent>
       </div>
       <div class="content">
@@ -44,7 +44,7 @@ export default {
         isIcon: true,
         checkedName: 'checked',
         customIcon: false,
-        isCheck: false,
+        isCheck: true,
       },
       defaultProps: {
         children: 'children',
@@ -59,6 +59,7 @@ export default {
         id: '',
       },
       arr: [],
+      array: []
     };
   },
   components: {
@@ -73,9 +74,11 @@ export default {
   mounted() {
   },
   methods: {
+    checkChange(data, checked, indeterminate) {
+      console.log(data, checked, indeterminate);
+    },
     nodeClick(data) {
       this.nodeData = data;
-
     },
     handleSelect(key, keyPath) {
       // console.log(key, keyPath);
