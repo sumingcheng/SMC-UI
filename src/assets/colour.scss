@@ -39,22 +39,3 @@ $foggyGrey: #E5DDD7;
   background-color: $canaryYellow;
 }
 
-.main {
-  display: flex;
-  justify-content: left;
-  align-items: center;
-
-  div {
-    width: 25vw;
-    height: 25vh;
-    text-align: center;
-    line-height: 250px;
-    font-size: 30px;
-    font-weight: bold;
-    overflow: hidden;
-  }
-}
-
-body {
-  margin: 0;
-}
