@@ -78,6 +78,7 @@ export default {
   mounted() {
   },
   methods: {
+    // 树形结构
     selectAll() {
       this.$refs.treeCom.selectAll();
     },
@@ -90,6 +91,7 @@ export default {
     nodeClick(data) {
       this.nodeData = data;
     },
+    // 菜单
     handleSelect(key, keyPath) {
       // console.log(key, keyPath);
     },
