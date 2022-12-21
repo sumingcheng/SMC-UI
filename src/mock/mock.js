@@ -1,7 +1,7 @@
 import Mock from 'mockjs';
 
 const tree = Mock.mock({
-  'array|15': [
+  'array|20': [
     {
       'id|+1': 1,
       label: '@city()',

@@ -3,11 +3,9 @@
     <el-menu :default-active="activeIndex" class="el-menu-demo" mode="horizontal" @select="handleSelect"
         background-color="#545c64" text-color="#fff" active-text-color="#ffd04b">
       <el-menu-item index="1">树形组件</el-menu-item>
-      <el-menu-item index="2">
-        <el-menu-item index="2-1">分页封装</el-menu-item>
-      </el-menu-item>
+      <el-menu-item index="2">柱状图组件</el-menu-item>
     </el-menu>
-    <div class="exhibition">
+    <div class="exhibition" v-if="activeIndex==='1'">
       <div>
         <treeComponent ref="treeCom" :TreeData.sync="treeData" :options="options" :defaultProps="defaultProps"
             @nodeClick="nodeClick" @checkChange="checkChange">
@@ -28,26 +26,54 @@
         </ul>
       </div>
     </div>
+    <div v-if="activeIndex==='2'">
+      <el-row :gutter="12">
+        <el-col :span="8">
+          <el-card shadow="hover">
+            <histogram :options="barOptions"></histogram>
+          </el-card>
+        </el-col>
+        <el-col :span="8">
+          <el-card shadow="hover">
+            <histogram :options="barOptions"></histogram>
+          </el-card>
+        </el-col>
+        <el-col :span="8">
+          <el-card shadow="hover">
+            <histogram :options="barOptions"></histogram>
+          </el-card>
+        </el-col>
+      </el-row>
+
+    </div>
   </div>
 </template>
 
 <script>
 import treeComponent from '@/views/treeComponent/index.vue';
+import histogram from '@/views/histogram/index.vue';
 import { tree } from '@/mock/mock';
 
 export default {
   data() {
     return {
+      barOptions: {
+        width: 200,
+        height: 15,
+        angle: 20,
+        bgColor: '#000',
+        barColor: 'orange',
+      },
       // 配置
       options: {
-        expandLevel1Data: false,
+        expandLevel1Data: true,
         childNodeID: 'hasChild',
         defaultExpansion: false,
         indent: 30,
         isCheckbox: true,
         isIcon: true,
         checkedName: 'checked',
-        customIcon: false,
+        customIcon: true,
         isCheck: true,
       },
       defaultProps: {
@@ -56,7 +82,7 @@ export default {
       },
       treeArr: [],
       // 数据
-      activeIndex: '1',
+      activeIndex: '2',
       nodeData: {
         hasChild: '',
         label: '',
@@ -67,7 +93,8 @@ export default {
     };
   },
   components: {
-    treeComponent
+    treeComponent,
+    histogram
   },
   computed: {
     treeData() {
@@ -93,7 +120,7 @@ export default {
     },
     // 菜单
     handleSelect(key, keyPath) {
-      // console.log(key, keyPath);
+      this.activeIndex = key.toString();
     },
   }
 };
