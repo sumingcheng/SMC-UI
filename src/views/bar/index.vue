@@ -10,11 +10,17 @@ export default {
     options: {
       type: Object,
       default: () => ({
+        // 高度，和圆角同步
         height: 15,
+        // 最大值
         maximum: 100,
+        // 最小值
         minimum: 50,
+        // 百分比
         percentage: 30,
+        // 背景色
         bgColor: '#e5f1ff',
+        // bar颜色
         barColor: '#4fa5f8',
       })
     },
