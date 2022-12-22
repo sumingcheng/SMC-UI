@@ -4,6 +4,8 @@
         background-color="#545c64" text-color="#fff" active-text-color="#ffd04b">
       <el-menu-item index="1">树形组件</el-menu-item>
       <el-menu-item index="2">柱状图组件</el-menu-item>
+      <el-menu-item index="3">请求等待组件</el-menu-item>
+      <el-menu-item index="4">自定义指令</el-menu-item>
     </el-menu>
     <div class="exhibition" v-if="activeIndex==='1'">
       <div>
@@ -30,39 +32,53 @@
       <el-row :gutter="12">
         <el-col :span="8">
           <el-card shadow="hover">
-            <histogram :options="barOptions"></histogram>
+            <bar :options="barOptions1"></bar>
           </el-card>
         </el-col>
         <el-col :span="8">
           <el-card shadow="hover">
-            <histogram :options="barOptions"></histogram>
+            <bar :options="barOptions2"></bar>
           </el-card>
         </el-col>
         <el-col :span="8">
           <el-card shadow="hover">
-            <histogram :options="barOptions"></histogram>
+            <bar :options="barOptions3"></bar>
           </el-card>
         </el-col>
       </el-row>
-
     </div>
   </div>
 </template>
 
 <script>
 import treeComponent from '@/views/treeComponent/index.vue';
-import histogram from '@/views/histogram/index.vue';
+import bar from '@/views/bar/index.vue';
 import { tree } from '@/mock/mock';
 
 export default {
   data() {
     return {
-      barOptions: {
-        width: 200,
+      barOptions1: {
         height: 15,
-        angle: 20,
-        bgColor: '#000',
-        barColor: 'orange',
+        maximum: 100,
+        minimum: 50,
+        percentage: 30,
+        bgColor: '#e5f1ff',
+        barColor: '#4fa5f8',
+      },
+      barOptions2: {
+        height: 15,
+        maximum: 100,
+        minimum: 50,
+        bgColor: '#002fa7',
+        barColor: '#FFE76F',
+      },
+      barOptions3: {
+        height: 15,
+        maximum: 100,
+        minimum: 50,
+        bgColor: '#01847F',
+        barColor: '#F9D2E4',
       },
       // 配置
       options: {
@@ -94,7 +110,7 @@ export default {
   },
   components: {
     treeComponent,
-    histogram
+    bar
   },
   computed: {
     treeData() {
