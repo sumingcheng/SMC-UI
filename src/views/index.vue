@@ -47,6 +47,10 @@
         </el-col>
       </el-row>
     </div>
+    <div v-if="activeIndex==='3'">
+      <toast>Loading</toast>
+    </div>
+
   </div>
 </template>
 
@@ -54,8 +58,14 @@
 import treeComponent from '@/views/treeComponent/index.vue';
 import bar from '@/views/bar/index.vue';
 import { tree } from '@/mock/mock';
+import toast from '@/views/toast/index.vue';
 
 export default {
+  components: {
+    treeComponent,
+    bar,
+    toast
+  },
   data() {
     return {
       barOptions1: {
@@ -98,7 +108,7 @@ export default {
       },
       treeArr: [],
       // 数据
-      activeIndex: '2',
+      activeIndex: '3',
       nodeData: {
         hasChild: '',
         label: '',
@@ -108,10 +118,7 @@ export default {
       array: []
     };
   },
-  components: {
-    treeComponent,
-    bar
-  },
+
   computed: {
     treeData() {
       let { array } = tree;
