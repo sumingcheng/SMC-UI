@@ -4,8 +4,9 @@
         background-color="#545c64" text-color="#fff" active-text-color="#ffd04b">
       <el-menu-item index="1">树形组件</el-menu-item>
       <el-menu-item index="2">柱状图组件</el-menu-item>
-      <el-menu-item index="3">请求等待组件</el-menu-item>
+      <el-menu-item index="3">请求等待练习</el-menu-item>
       <el-menu-item index="4">自定义指令</el-menu-item>
+      <el-menu-item index="5">步骤条</el-menu-item>
     </el-menu>
     <div class="exhibition" v-if="activeIndex==='1'">
       <div>
@@ -50,7 +51,11 @@
     <div v-if="activeIndex==='3'">
       <toast>Loading</toast>
     </div>
-
+    <div v-if="activeIndex==='4'">
+    </div>
+    <div v-if="activeIndex==='5'">
+      <stepBar>Loading</stepBar>
+    </div>
   </div>
 </template>
 
@@ -59,12 +64,14 @@ import treeComponent from '@/views/treeComponent/index.vue';
 import bar from '@/views/bar/index.vue';
 import { tree } from '@/mock/mock';
 import toast from '@/views/toast/index.vue';
+import stepBar from '@/views/stepBar/index.vue';
 
 export default {
   components: {
     treeComponent,
     bar,
-    toast
+    toast,
+    stepBar
   },
   data() {
     return {
