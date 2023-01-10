@@ -1,32 +1,9 @@
 <template>
   <div>
     <el-steps :active="1" class="stepStyle">
-      <el-step>
+      <el-step v-for="item in modifyDate">
         <template v-slot:description>
-          <div class="topText">测试文字：2023年1月6日 09:51:19</div>
-          <div class="topTextNmt">测试文字：2023年1月6日 09:51:19</div>
-          <div class="topTextNmt">测试文字：2023年1月6日 09:51:19</div>
-        </template>
-      </el-step>
-      <el-step>
-        <template v-slot:description>
-          <div class="topText">测试文字：2023年1月6日 09:51:19</div>
-          <div class="topTextNmt">测试文字：2023年1月6日 09:51:19</div>
-          <div class="topTextNmt">测试文字：2023年1月6日 09:51:19</div>
-        </template>
-      </el-step>
-      <el-step>
-        <template v-slot:description>
-          <div class="topText">测试文字：2023年1月6日 09:51:19</div>
-          <div class="topTextNmt">测试文字：2023年1月6日 09:51:19</div>
-          <div class="topTextNmt">测试文字：2023年1月6日 09:51:19</div>
-        </template>
-      </el-step>
-      <el-step>
-        <template v-slot:description>
-          <div class="topText">测试文字：2023年1月6日 09:51:19</div>
-          <div class="topTextNmt">测试文字：2023年1月6日 09:51:19</div>
-          <div class="topTextNmt">测试文字：2023年1月6日 09:51:19</div>
+          <div class="topText">{{ item }}</div>
         </template>
       </el-step>
     </el-steps>
@@ -34,13 +11,55 @@
 </template>
 
 <script>
+
 export default {
+  props: {
+    detection: {
+      type: Array,
+      default: function () {
+        return [
+          {
+            'modifyDate': '2023-01-09 19:22:47', 'status': '已送检'
+          },
+          {
+            'modifyDate': '2023-01-09 19:22:47',
+            'status': '已送检'
+          },
+          {
+            'modifyDate': '2023-01-09 19:22:47',
+            'status': '已送检'
+          },
+          {
+            'modifyDate': '2023-01-09 19:22:47',
+            'status': '已送检'
+          },
+          {
+            'modifyDate': '2023-01-09 19:22:47',
+            'status': '已送检'
+          },
+          {
+            'modifyDate': '2023-01-09 19:22:47',
+            'status': '已送检'
+          },
+          {
+            'modifyDate': '2023-01-09 19:22:47',
+            'status': '已送检'
+          }
+        ];
+      }
+    }
+  },
   data() {
     return {
-      stepInforArr: [ '事件上报', '确认发布', '平台接收', '采纳情况' ],
+      status: [],
+      modifyDate: [],
     };
   },
-  created() {
+  mounted() {
+    this.detection.forEach(elem => {
+      this.modifyDate.push(elem.modifyDate);
+      this.status.push(elem.status);
+    });
     this.informationViewing();
   },
   methods: {
@@ -49,12 +68,9 @@ export default {
       this.$nextTick(() => {
         const stepDom = document.querySelectorAll('.el-step__icon-inner');
         stepDom.forEach((elem, index) => {
-          elem.textContent = this.stepInforArr[index];
+          elem.textContent = this.status[index];
           if (index === stepDom.length - 1) {
             elem.className = 'overwritePseudoElements';
-            // let pseudoElement = window.getComputedStyle(elem, '::after');
-            // console.log(pseudoElement);
-            // console.log(pseudoElement.className = 'overwritePseudoElements');
           }
         });
       });
