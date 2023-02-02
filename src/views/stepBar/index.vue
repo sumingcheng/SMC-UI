@@ -1,6 +1,6 @@
 <template>
   <div>
-    <el-steps :active="1" class="stepStyle">
+    <el-steps :active="2" class="stepStyle">
       <el-step v-for="item in modifyDate">
         <template v-slot:description>
           <div class="topText">{{ item }}</div>
@@ -19,9 +19,6 @@ export default {
       default: function () {
         return [
           {
-            'modifyDate': '2023-01-09 19:22:47', 'status': '已送检'
-          },
-          {
             'modifyDate': '2023-01-09 19:22:47',
             'status': '已送检'
           },
@@ -44,7 +41,7 @@ export default {
           {
             'modifyDate': '2023-01-09 19:22:47',
             'status': '已送检'
-          }
+          },
         ];
       }
     }
@@ -79,6 +76,7 @@ export default {
 };
 </script>
 
+
 <style lang="scss" scoped>
 ::v-deep .stepStyle {
   margin: 0 10%;
@@ -96,6 +94,11 @@ export default {
       padding: 0.3rem 1.2rem;
       text-align: center;
     }
+
+    .el-step__line-inner {
+      background: #084383;
+      border-color: #084383;
+    }
   }
 
   //准备
@@ -111,6 +114,11 @@ export default {
       padding: 0.3rem 1.2rem;
       text-align: center;
     }
+
+    .el-step__line {
+      border: 1px dashed #084383;
+      background: #FFFFFF;
+    }
   }
 
   //等待
@@ -119,12 +127,17 @@ export default {
       width: 120px;
       height: 35px;
       font-size: 16px;
-      color: #084383;
+      color: #304254;
       background: #FFFFFF;
       border: 1px solid #084383;
       border-radius: 15.75px !important;
       padding: 0.3rem 1.2rem;
       text-align: center;
+    }
+
+    .el-step__line {
+      border: 1px dashed #084383;
+      background: #FFFFFF;
     }
   }
 
@@ -167,3 +180,4 @@ export default {
   }
 }
 </style>
+
