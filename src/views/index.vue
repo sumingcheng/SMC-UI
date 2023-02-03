@@ -7,6 +7,7 @@
       <el-menu-item index="3">请求等待练习</el-menu-item>
       <el-menu-item index="4">自定义指令</el-menu-item>
       <el-menu-item index="5">步骤条</el-menu-item>
+      <el-menu-item index="6">描述列表</el-menu-item>
     </el-menu>
     <div class="exhibition" v-if="activeIndex==='1'">
       <div>
@@ -55,6 +56,8 @@
     </div>
     <div v-if="activeIndex==='5'">
       <stepBar>Loading</stepBar>
+    </div>
+    <div v-if="activeIndex==='6'">
     </div>
   </div>
 </template>
@@ -115,7 +118,7 @@ export default {
       },
       treeArr: [],
       // 数据
-      activeIndex: '3',
+      activeIndex: '6',
       nodeData: {
         hasChild: '',
         label: '',
