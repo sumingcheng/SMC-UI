@@ -58,6 +58,7 @@
       <stepBar>Loading</stepBar>
     </div>
     <div v-if="activeIndex==='6'">
+      <list></list>
     </div>
   </div>
 </template>
@@ -68,13 +69,15 @@ import bar from '@/views/bar/index.vue';
 import { tree } from '@/mock/mock';
 import toast from '@/views/toast/index.vue';
 import stepBar from '@/views/stepBar/index.vue';
+import list from '@/views/list';
 
 export default {
   components: {
     treeComponent,
     bar,
     toast,
-    stepBar
+    stepBar,
+    list
   },
   data() {
     return {

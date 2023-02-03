@@ -1,16 +1,62 @@
 <template>
-  <div>
-
-  </div>
+  <el-row class="main" :gutter="row.gutter">
+    <el-col :span="span" v-for="item in items" :key="item.id">
+      <div class="label">{{ item.label }}</div>
+      <div class="text">{{ item.text }}</div>
+    </el-col>
+  </el-row>
 </template>
-
 <script>
-
 export default {
-  props: {},
+  data() {
+    return {
+      row: {
+        gutter: 0,
+        span: 8,
+      },
+      items: [
+        { id: 1, label: 'label', text: 'Item 1' },
+        { id: 2, label: 'label', text: 'Item 2' },
+        { id: 3, label: 'label', text: 'Item 3' },
+        { id: 3, label: 'label', text: 'Item 3' },
+        // ...
+      ]
+    };
+  },
+  computed: {
+    span: function () {
+      let num = 24 / this.items.length;
+      return Number(num);
+    }
+  }
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+.main {
+  width: 100%;
+  border: 1px solid #ebebeb;
+  border-radius: 3px;
+  transition: .2s;
+}
 
+.label {
+  min-height: 30px;
+  line-height: 30px;
+  font-size: 14px;
+  font-weight: normal;
+  text-align: center;
+  background-color: #fafafa;
+  border: 1px solid #ebebeb;
+}
+
+.text {
+  min-height: 30px;
+  line-height: 30px;
+  font-size: 14px;
+  font-weight: normal;
+  text-align: center;
+  border: 1px solid #ebebeb;
+  background-color: #bcc9ee;
+}
 </style>
