@@ -1,12 +1,14 @@
 <template>
   <el-row class="main" :gutter="row.gutter">
-    <el-col :span="span" v-for="item in items" :key="item.id">
+    <el-col :span="span" v-for="item in items" :key="item.key">
       <div class="label">{{ item.label }}</div>
       <div class="text">{{ item.text }}</div>
     </el-col>
   </el-row>
 </template>
 <script>
+import { nanoid } from 'nanoid';
+
 export default {
   data() {
     return {
@@ -15,10 +17,10 @@ export default {
         span: 8,
       },
       items: [
-        { id: 1, label: 'label', text: 'Item 1' },
-        { id: 2, label: 'label', text: 'Item 2' },
-        { id: 3, label: 'label', text: 'Item 3' },
-        { id: 3, label: 'label', text: 'Item 3' },
+        { id: nanoid(), label: 'label', text: 'Item 1' },
+        { id: nanoid(), label: 'label', text: 'Item 2' },
+        { id: nanoid(), label: 'label', text: 'Item 3' },
+        { id: nanoid(), label: 'label', text: 'Item 3' },
         // ...
       ]
     };
