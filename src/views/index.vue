@@ -162,7 +162,7 @@ export default {
       this.nodeData = data;
     },
     // 菜单
-    handleSelect(key, keyPath) {
+    handleSelect(key) {
       this.activeIndex = key.toString();
     },
   }
