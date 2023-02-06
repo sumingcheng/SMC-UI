@@ -154,6 +154,7 @@ export default {
 
   .el-step__icon-inner {
     &::after {
+      font-family: element-icons;
       content: '\e791';
       position: absolute;
       top: 6.5px;
