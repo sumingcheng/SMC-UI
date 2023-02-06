@@ -22,32 +22,32 @@ export default {
           {
             'modifyDate': '2023-01-09 19:22:47',
             'status': '已送检1',
-            key: nanoid(10)
+            key: nanoid(11)
           },
           {
             'modifyDate': '2023-01-09 19:22:47',
             'status': '已送检2',
-            key: nanoid(10)
+            key: nanoid(11)
           },
           {
             'modifyDate': '2023-01-09 19:22:47',
             'status': '已送检3',
-            key: nanoid(10)
+            key: nanoid(11)
           },
           {
             'modifyDate': '2023-01-09 19:22:47',
             'status': '已送检4',
-            key: nanoid(10)
+            key: nanoid(11)
           },
           {
             'modifyDate': '2023-01-09 19:22:47',
             'status': '已送检5',
-            key: nanoid(10)
+            key: nanoid(11)
           },
           {
             'modifyDate': '2023-01-09 19:22:47',
             'status': '已送检6',
-            key: nanoid(10)
+            key: nanoid(11)
           },
         ];
       }

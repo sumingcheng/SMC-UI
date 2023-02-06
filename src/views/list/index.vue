@@ -17,10 +17,10 @@ export default {
         span: 8,
       },
       items: [
-        { id: nanoid(), label: 'label', text: 'Item 1' },
-        { id: nanoid(), label: 'label', text: 'Item 2' },
-        { id: nanoid(), label: 'label', text: 'Item 3' },
-        { id: nanoid(), label: 'label', text: 'Item 3' },
+        { id: nanoid(11), label: 'label', text: 'Item 1' },
+        { id: nanoid(11), label: 'label', text: 'Item 2' },
+        { id: nanoid(11), label: 'label', text: 'Item 3' },
+        { id: nanoid(11), label: 'label', text: 'Item 3' },
         // ...
       ]
     };
