@@ -1,34 +1,33 @@
 <template>
   <el-row class="main" :gutter="row.gutter">
-    <el-col :span="span" v-for="item in items" :key="item.key">
+    <div :style="{width:width}" v-for="item in descriptionList" :key="item.key">
       <div class="label">{{ item.label }}</div>
       <div class="text">{{ item.text }}</div>
-    </el-col>
+    </div>
   </el-row>
 </template>
 <script>
-import { nanoid } from 'nanoid';
+
 
 export default {
+  props: {
+    descriptionList: {
+      type: Array,
+      default: () => []
+    }
+  },
   data() {
     return {
       row: {
         gutter: 0,
         span: 8,
       },
-      items: [
-        { id: nanoid(11), label: 'label', text: 'Item 1' },
-        { id: nanoid(11), label: 'label', text: 'Item 2' },
-        { id: nanoid(11), label: 'label', text: 'Item 3' },
-        { id: nanoid(11), label: 'label', text: 'Item 3' },
-        // ...
-      ]
     };
   },
   computed: {
-    span: function () {
-      let num = 24 / this.items.length;
-      return Number(num);
+    width: function () {
+      let num = 100 / this.descriptionList.length;
+      return Number(num) + '%';
     }
   }
 };
@@ -36,7 +35,9 @@ export default {
 
 <style lang="scss" scoped>
 .main {
+  display: flex;
   width: 100%;
+  justify-content: left;
   border: 1px solid #ebebeb;
   border-radius: 3px;
   transition: .2s;
@@ -61,4 +62,6 @@ export default {
   border: 1px solid #ebebeb;
   background-color: #bcc9ee;
 }
+
+
 </style>

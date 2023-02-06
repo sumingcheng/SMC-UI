@@ -58,7 +58,7 @@
       <stepBar>Loading</stepBar>
     </div>
     <div v-if="activeIndex==='6'">
-      <list></list>
+      <list :descriptionList="descriptionList"></list>
     </div>
   </div>
 </template>
@@ -70,6 +70,7 @@ import { tree } from '@/mock/mock';
 import toast from '@/views/toast/index.vue';
 import stepBar from '@/views/stepBar/index.vue';
 import list from '@/views/list';
+import { nanoid } from 'nanoid';
 
 export default {
   components: {
@@ -128,7 +129,13 @@ export default {
         id: '',
       },
       arr: [],
-      array: []
+      array: [],
+      descriptionList: [
+        { id: nanoid(11), label: 'label', text: 'Item 1' },
+        { id: nanoid(11), label: 'label', text: 'Item 2' },
+        { id: nanoid(11), label: 'label', text: 'Item 3' },
+        { id: nanoid(11), label: 'label', text: 'Item 3' },
+      ]
     };
   },
 
