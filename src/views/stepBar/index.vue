@@ -1,9 +1,9 @@
 <template>
   <div>
     <el-steps :active="2" class="stepStyle">
-      <el-step v-for="item in modifyDate">
+      <el-step v-for="(item) in detection" :key="item.key">
         <template v-slot:description>
-          <div class="topText">{{ item }}</div>
+          <div class="topText">{{ item.modifyDate }}</div>
         </template>
       </el-step>
     </el-steps>
@@ -11,6 +11,7 @@
 </template>
 
 <script>
+import { nanoid } from 'nanoid';
 
 export default {
   props: {
@@ -20,27 +21,33 @@ export default {
         return [
           {
             'modifyDate': '2023-01-09 19:22:47',
-            'status': '已送检'
+            'status': '已送检1',
+            key: nanoid(10)
           },
           {
             'modifyDate': '2023-01-09 19:22:47',
-            'status': '已送检'
+            'status': '已送检2',
+            key: nanoid(10)
           },
           {
             'modifyDate': '2023-01-09 19:22:47',
-            'status': '已送检'
+            'status': '已送检3',
+            key: nanoid(10)
           },
           {
             'modifyDate': '2023-01-09 19:22:47',
-            'status': '已送检'
+            'status': '已送检4',
+            key: nanoid(10)
           },
           {
             'modifyDate': '2023-01-09 19:22:47',
-            'status': '已送检'
+            'status': '已送检5',
+            key: nanoid(10)
           },
           {
             'modifyDate': '2023-01-09 19:22:47',
-            'status': '已送检'
+            'status': '已送检6',
+            key: nanoid(10)
           },
         ];
       }
@@ -147,7 +154,6 @@ export default {
 
   .el-step__icon-inner {
     &::after {
-      font-family: element-icons;
       content: '\e791';
       position: absolute;
       top: 6.5px;
