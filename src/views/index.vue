@@ -8,7 +8,7 @@
       <el-menu-item index="4">自定义指令</el-menu-item>
       <el-menu-item index="5">步骤条</el-menu-item>
       <el-menu-item index="6">描述列表</el-menu-item>
-      <el-menu-item index="7">el-table封装</el-menu-item>
+      <el-menu-item index="7">7</el-menu-item>
     </el-menu>
     <div class="exhibition" v-if="activeIndex==='1'">
       <div>
@@ -62,7 +62,6 @@
       <list :descriptionList="descriptionList"></list>
     </div>
     <div v-if="activeIndex==='7'">
-      <elTable></elTable>
     </div>
   </div>
 </template>

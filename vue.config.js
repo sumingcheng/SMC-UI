@@ -1,6 +1,10 @@
 const { defineConfig } = require('@vue/cli-service')
 const path = require('path')
 
+function resolve(dir) {
+  return path.join(__dirname, dir)//path.join(__dirname)设置绝对路径
+}
+
 module.exports = defineConfig({
   transpileDependencies: true,  // 是否将所有文件都编译一遍（通过 babel 编译文件：ES6+ → ES5）
   publicPath: '/',
@@ -32,10 +36,9 @@ module.exports = defineConfig({
     },
   },
   configureWebpack: {
-    name: name,
     resolve: {
       alias: {
-        '@': path.join(__dirname, 'src')
+        '@': resolve('src')
       }
     }
   },
