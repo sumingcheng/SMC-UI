@@ -74,7 +74,6 @@ import toast from '@/views/toast/index.vue'
 import stepBar from '@/views/stepBar/index.vue'
 import list from '@/views/list'
 import { nanoid } from 'nanoid'
-import elTable from '@/views/elTable/index.vue'
 
 export default {
   components: {
@@ -83,7 +82,6 @@ export default {
     toast,
     stepBar,
     list,
-    elTable
   },
   data() {
     return {

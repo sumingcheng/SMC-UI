@@ -85,7 +85,7 @@ export default {
 
 
 <style lang="scss" scoped>
-::v-deep .stepStyle {
+:deep .stepStyle {
   margin: 0 10%;
   padding: 20px;
   //完成

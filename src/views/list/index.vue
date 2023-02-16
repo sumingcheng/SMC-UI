@@ -22,15 +22,15 @@ export default {
         gutter: 0,
         span: 8,
       },
-    };
+    }
   },
   computed: {
     width: function () {
-      let num = 100 / this.descriptionList.length;
-      return Number(num) + '%';
+      let num = 100 / this.descriptionList.length
+      return Number(num) + '%'
     }
   }
-};
+}
 </script>
 
 <style lang="scss" scoped>

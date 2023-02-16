@@ -179,7 +179,7 @@ export default {
   height: 100%;
 
   // 一级样式
-  ::v-deep .lOneNodeIcon {
+  :deep .lOneNodeIcon {
     &:before {
       display: inline-block;
       vertical-align: middle;
@@ -194,13 +194,13 @@ export default {
     }
   }
 
-  ::v-deep .el-tree-node__label {
+  :deep .el-tree-node__label {
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
   }
 
-  ::v-deep .el-tree-node__content {
+  :deep .el-tree-node__content {
     font-size: 16px;
     height: 36px;
 
