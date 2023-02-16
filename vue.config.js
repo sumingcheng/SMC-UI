@@ -1,4 +1,5 @@
-const { defineConfig } = require('@vue/cli-service');
+const { defineConfig } = require('@vue/cli-service')
+const path = require('path')
 
 module.exports = defineConfig({
   transpileDependencies: true,  // 是否将所有文件都编译一遍（通过 babel 编译文件：ES6+ → ES5）
@@ -11,11 +12,11 @@ module.exports = defineConfig({
     // port: 80,
     // open: true,   //启动后是否自动打开浏览器访问首页
     historyApiFallback: true,
-    allowedHosts: "all",
+    allowedHosts: 'all',
     // allowedHosts: [
     //   'apply.free.svipss.top',    // 允许访问的域名地址，即内网穿透的地址
     //   '.free.svipss.top',    // .是二级域名的通配符
-      // '.natappfree.cc'
+    // '.natappfree.cc'
     // ],
     // 跨域代理配置
     proxy: {
@@ -30,4 +31,12 @@ module.exports = defineConfig({
       },
     },
   },
-});
+  configureWebpack: {
+    name: name,
+    resolve: {
+      alias: {
+        '@': path.join(__dirname, 'src')
+      }
+    }
+  },
+})

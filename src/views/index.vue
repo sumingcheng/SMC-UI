@@ -8,6 +8,7 @@
       <el-menu-item index="4">自定义指令</el-menu-item>
       <el-menu-item index="5">步骤条</el-menu-item>
       <el-menu-item index="6">描述列表</el-menu-item>
+      <el-menu-item index="7">el-table封装</el-menu-item>
     </el-menu>
     <div class="exhibition" v-if="activeIndex==='1'">
       <div>
@@ -60,17 +61,21 @@
     <div v-if="activeIndex==='6'">
       <list :descriptionList="descriptionList"></list>
     </div>
+    <div v-if="activeIndex==='7'">
+      <elTable></elTable>
+    </div>
   </div>
 </template>
 
 <script>
-import treeComponent from '@/views/treeComponent/index.vue';
-import bar from '@/views/bar/index.vue';
-import { tree } from '@/mock/mock';
-import toast from '@/views/toast/index.vue';
-import stepBar from '@/views/stepBar/index.vue';
-import list from '@/views/list';
-import { nanoid } from 'nanoid';
+import treeComponent from '@/views/treeComponent/index.vue'
+import bar from '@/views/bar/index.vue'
+import { tree } from '@/mock/mock'
+import toast from '@/views/toast/index.vue'
+import stepBar from '@/views/stepBar/index.vue'
+import list from '@/views/list'
+import { nanoid } from 'nanoid'
+import elTable from '@/views/elTable/index.vue'
 
 export default {
   components: {
@@ -78,7 +83,8 @@ export default {
     bar,
     toast,
     stepBar,
-    list
+    list,
+    elTable
   },
   data() {
     return {
@@ -136,13 +142,13 @@ export default {
         { id: nanoid(11), label: 'label', text: 'Item 3' },
         { id: nanoid(11), label: 'label', text: 'Item 3' },
       ]
-    };
+    }
   },
 
   computed: {
     treeData() {
-      let { array } = tree;
-      return array;
+      let { array } = tree
+      return array
     }
   },
   mounted() {
@@ -150,23 +156,23 @@ export default {
   methods: {
     // 树形结构
     selectAll() {
-      this.$refs.treeCom.selectAll();
+      this.$refs.treeCom.selectAll()
     },
     deselect() {
-      this.$refs.treeCom.deselect();
+      this.$refs.treeCom.deselect()
     },
     checkChange(data, checked, indeterminate) {
-      console.log(data, checked, indeterminate);
+      console.log(data, checked, indeterminate)
     },
     nodeClick(data) {
-      this.nodeData = data;
+      this.nodeData = data
     },
     // 菜单
     handleSelect(key) {
-      this.activeIndex = key.toString();
+      this.activeIndex = key.toString()
     },
   }
-};
+}
 </script>
 
 <style lang="scss" scoped>

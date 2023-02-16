@@ -1,0 +1,234 @@
+@import './global.scss';
+
+// 顶部区域
+.top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  @include main_lr();
+
+  .top_left {
+    color: $fontText;
+    font-size: .18rem;
+    text-align: center;
+  }
+
+  .el-iconr {
+    position: absolute;
+    font-size: 30px;
+    font-weight: bold;
+    top: 10%;
+    right: 3.5%;
+    color: #4193E4;
+  }
+
+  .top_Navigation {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 80%;
+
+    .Data_view {
+      cursor: pointer;
+      color: $fontWhite;
+      background-image: url("../../assets/images/形状3拷贝.png");
+      @include bg();
+      font-size: .20rem;
+      @include text_cent();
+      @include top_top();
+    }
+
+    .Data_monitoring {
+      cursor: pointer;
+      color: $fontWhite;
+      background-image: url("../../assets/images/形状3拷贝.png");
+      @include bg();
+      font-size: .20rem;
+      @include text_cent();
+      @include top_top();
+    }
+
+    .title {
+      cursor: pointer;
+      color: $fontWhite;
+      background-image: url("../../assets/images/h-bg.png");
+      background-repeat: no-repeat;
+      background-size: 100% 90%;
+      background-position: center top;
+      width: 8.14rem;
+      height: 0.90rem;
+      line-height: 0.6rem;
+      font-size: .28rem;
+      font-weight: bold;
+      text-shadow: 0px 0px 7px rgba(9, 78, 186, 0.5);
+      display: flex;
+      justify-content: center;
+      align-items: baseline;
+
+      .title_set {
+
+        margin: 0.1rem;
+      }
+    }
+
+    .App_Manage {
+      cursor: pointer;
+      color: $fontWhite;
+      background-image: url("../../assets/images/形状3拷贝3.png");
+      @include bg();
+      font-size: .20rem;
+      @include text_cent();
+      @include top_top();
+    }
+
+    .Sys_Manage {
+      cursor: pointer;
+      color: $fontWhite;
+      background-image: url("../../assets/images/形状3拷贝2.png");
+      @include bg();
+      font-size: .20rem;
+      @include text_cent();
+      @include top_top();
+    }
+  }
+
+  .top_right {
+    cursor: pointer;
+    color: $fontText;
+    font-size: .18rem;
+    text-align: center;
+
+    .top_right_time {
+      font-size: 0.2rem;
+    }
+  }
+}
+
+
+.content {
+  width: 98%;
+  height: 87vh;
+  display: flex;
+  justify-content: space-between;
+  @include main_lr();
+  padding: 0 0 0.2rem;
+
+  .left {
+    width: 26%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    .left1 {
+      @include leftSet;
+    }
+
+    .left2 {
+      @include leftSet;
+    }
+
+    .left3 {
+      @include leftSet;
+    }
+  }
+
+  // 中部
+  .middle {
+    width: 44%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    .middle1 {
+      width: 100%;
+      height: 100%;
+      // background-color: pink;
+      margin-top: 0.25rem;
+    }
+  }
+
+  // 右
+  .right {
+    width: 28%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    .right1 {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 100%;
+      height: 60%;
+      // background-color: pink;
+      margin-top: 0.25rem;
+
+      .right1_top {
+        width: 65%;
+        display: flex;
+        justify-content: space-between;
+
+        .top1 {
+          cursor: pointer;
+          text-align: center;
+          width: 1.62rem;
+          height: 0.41rem;
+          line-height: 0.41rem;
+          background-image: url("../../assets/images/btn-bg1.png");
+          background-repeat: no-repeat;
+          background-position: center center;
+          background-size: 100%;
+          font-size: 0.2rem;
+          color: #FFFFFF;
+        }
+
+
+        .top2 {
+          cursor: pointer;
+          text-align: center;
+          width: 1.62rem;
+          height: 0.41rem;
+          line-height: 0.41rem;
+          background-image: url("../../assets/images/btn-bg1.png");
+          background-repeat: no-repeat;
+          background-position: center center;
+          background-size: 100%;
+          font-size: 0.2rem;
+          color: #FFFFFF;
+        }
+      }
+
+      .down {
+        height: 89%;
+        width: 98%;
+
+        .right_form {
+          width: 100%;
+
+          .Circle {
+            width: 0.26rem;
+            height: 0.26rem;
+            background: #324ea2;
+            -moz-border-radius: 50px;
+            -webkit-border-radius: 50px;
+            border-radius: 50px;
+            background-position: center center;
+            text-align: center;
+            font-size: 0.16rem;
+            line-height: 0.25rem;
+            font-weight: bold;
+          }
+        }
+      }
+    }
+
+    .right3 {
+      width: 100%;
+      height: 35%;
+      z-index: 99;
+    }
+  }
+}
