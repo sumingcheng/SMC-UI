@@ -8,7 +8,7 @@
       <el-menu-item index="4">自定义指令</el-menu-item>
       <el-menu-item index="5">步骤条</el-menu-item>
       <el-menu-item index="6">描述列表</el-menu-item>
-      <el-menu-item index="7">7</el-menu-item>
+      <el-menu-item index="7">临时</el-menu-item>
     </el-menu>
     <div class="exhibition" v-if="activeIndex==='1'">
       <div>
@@ -54,6 +54,7 @@
       <toast>Loading</toast>
     </div>
     <div v-if="activeIndex==='4'">
+      <instructions></instructions>
     </div>
     <div v-if="activeIndex==='5'">
       <stepBar>Loading</stepBar>
@@ -67,7 +68,6 @@
 </template>
 
 <script>
-import treeComponent from '@/views/treeComponent/index.vue'
 import bar from '@/views/bar/index.vue'
 import { tree } from '@/mock/mock'
 import toast from '@/views/toast/index.vue'
@@ -77,11 +77,12 @@ import { nanoid } from 'nanoid'
 
 export default {
   components: {
-    treeComponent,
+    treeComponent: () => import('@/views/treeComponent/index.vue'),
     bar,
     toast,
     stepBar,
     list,
+    instructions: () => import('@/views/instructions/index.vue')
   },
   data() {
     return {
