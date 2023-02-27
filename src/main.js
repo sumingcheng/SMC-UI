@@ -18,6 +18,10 @@ Vue.directive('bgColor', {
   }
 })
 
+// 总线
+Vue.prototype.$eventBus = new Vue()
+
+
 
 new Vue({
   router, store, render: h => h(App)

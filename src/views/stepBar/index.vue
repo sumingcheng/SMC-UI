@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import { nanoid } from 'nanoid';
+import { nanoid } from 'nanoid'
 
 export default {
   props: {
@@ -49,7 +49,7 @@ export default {
             'status': '已送检6',
             key: nanoid(11)
           },
-        ];
+        ]
       }
     }
   },
@@ -57,30 +57,30 @@ export default {
     return {
       status: [],
       modifyDate: [],
-    };
+    }
   },
   mounted() {
     this.detection.forEach(elem => {
-      this.modifyDate.push(elem.modifyDate);
-      this.status.push(elem.status);
-    });
-    this.informationViewing();
+      this.modifyDate.push(elem.modifyDate)
+      this.status.push(elem.status)
+    })
+    this.informationViewing()
   },
   methods: {
     informationViewing() {
-      this.informaDalogin = true;
+      this.informaDalogin = true
       this.$nextTick(() => {
-        const stepDom = document.querySelectorAll('.el-step__icon-inner');
+        const stepDom = document.querySelectorAll('.el-step__icon-inner')
         stepDom.forEach((elem, index) => {
-          elem.textContent = this.status[index];
+          elem.textContent = this.status[index]
           if (index === stepDom.length - 1) {
-            elem.className = 'overwritePseudoElements';
+            elem.className = 'overwritePseudoElements'
           }
-        });
-      });
+        })
+      })
     },
   }
-};
+}
 </script>
 
 
